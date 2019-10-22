@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSheetChallenge.UI", "AppSheetChallenge.UI\AppSheetChallenge.UI.csproj", "{60CFDF81-3C92-40F0-A4D5-2326132BB47D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60CFDF81-3C92-40F0-A4D5-2326132BB47D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60CFDF81-3C92-40F0-A4D5-2326132BB47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60CFDF81-3C92-40F0-A4D5-2326132BB47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60CFDF81-3C92-40F0-A4D5-2326132BB47D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C98EA1B-9DEC-4088-8027-C9643FE6D5B7}
+	EndGlobalSection
+EndGlobal
