@@ -32,26 +32,23 @@ namespace AppSheetChallenge.Library
 		/// Returns all <see cref="Person"/> objects from the web service sorted youngest to oldest by age.
 		/// If an exception occurs while retrieving a person, that person is excluded from the results.
 		/// </summary>
-		public async Task<Person[]> FindAllPeopleSortedByAge()
+		/// <param name="unitedStatesNumbersOnly">True to return only people with phone numbers in the United States.</param>
+		public async Task<Person[]> FindPeopleSortedByAge(bool unitedStatesNumbersOnly = false)
 		{
 			const string listPath = "list";
 			const string detailPath = "detail";
 			var people = new SortedSet<Person>();
-			var result = await this.QueryService<PersonIdList>(listPath);
-			foreach (var person in await Task.WhenAll(result.result.Select(i => this.QueryService<Person>($"{detailPath}/{i}"))))
+			PersonIdList result = null;
+			do
 			{
-				if (person.exception == null)
-					people.Add(person);
-			}
-			while (!string.IsNullOrEmpty(result.token))
-			{
-				result = await this.QueryService<PersonIdList>(listPath, $"token={result.token}");
+				var query = result != null ? $"token={result.token}" : string.Empty;
+				result = await this.QueryService<PersonIdList>(listPath, query);
 				foreach (var person in await Task.WhenAll(result.result.Select(i => this.QueryService<Person>($"{detailPath}/{i}"))))
 				{
-					if (person.exception == null)
+					if (person.exception == null && (!unitedStatesNumbersOnly || person.HasUnitedStatesNumber()))
 						people.Add(person);
 				}
-			}
+			} while (!string.IsNullOrEmpty(result.token));
 			return people.ToArray();
 		}
 		#endregion

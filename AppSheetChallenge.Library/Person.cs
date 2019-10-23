@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace AppSheetChallenge.Library
 {
@@ -42,6 +43,22 @@ namespace AppSheetChallenge.Library
 		/// Gets or sets any exception that occurs retrieving the object from the web service.
 		/// </summary>
 		public Exception exception { get; set; }
+		#endregion
+
+		#region Public Methods
+		/// <summary>
+		/// Gets a value indicating whether this person has a phone number in the united states. Area code is required.
+		/// Examples of allowed formats:
+		/// 123.456.7890
+		/// 123-456-7890
+		/// (123) 456-7890
+		/// </summary>
+		/// <returns>True if the phone number is a valid United States number; otherwise, false.</returns>
+		public bool HasUnitedStatesNumber()
+		{
+			const string regexPattern = @"^\s*\(?\s*([0-9]{3})\s*\)?\s*[-.]?\s*([0-9]{3})\s*[-.]?\s*([0-9]{4})\s*$";
+			return string.IsNullOrEmpty(this.number) ? false : Regex.IsMatch(this.number, regexPattern);
+		}
 		#endregion
 
 		#region IComparable Members

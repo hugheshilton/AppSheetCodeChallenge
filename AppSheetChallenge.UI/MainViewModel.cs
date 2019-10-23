@@ -38,7 +38,8 @@ namespace AppSheetChallenge.UI
 			this.RetrieveAllCommand.OnCanExecuteChanged();
 			this.People.Clear();
 			var finder = new PeopleFinder("https://appsheettest1.azurewebsites.net/sample");
-			foreach (var person in await finder.FindAllPeopleSortedByAge())
+			var type = (RetrievalType)parameter;
+			foreach (var person in await finder.FindPeopleSortedByAge(type == RetrievalType.USOnly))
 			{
 				this.People.Add(person);
 			}
@@ -62,5 +63,20 @@ namespace AppSheetChallenge.UI
 			this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
 		#endregion
+	}
+
+	/// <summary>
+	/// The type of people retrieval operation to perform.
+	/// </summary>
+	public enum RetrievalType
+	{
+		/// <summary>
+		/// Retrieve all people.
+		/// </summary>
+		All,
+		/// <summary>
+		/// Retrieve all people with United States phone numbers.s
+		/// </summary>
+		USOnly
 	}
 }
