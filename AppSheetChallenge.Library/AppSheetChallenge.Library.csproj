@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IHasException.cs" />
     <Compile Include="PeopleFinder.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="PersonIdList.cs" />

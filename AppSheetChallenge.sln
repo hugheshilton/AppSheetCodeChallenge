@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSheetChallenge.UI", "App
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSheetChallenge.Library", "AppSheetChallenge.Library\AppSheetChallenge.Library.csproj", "{7E761AD8-D197-4A43-855F-197EE7CD974D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSheetChallenge.Test", "AppSheetChallenge.Test\AppSheetChallenge.Test.csproj", "{3282C339-6B1F-4864-9DC3-CC53909D11D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7E761AD8-D197-4A43-855F-197EE7CD974D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E761AD8-D197-4A43-855F-197EE7CD974D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E761AD8-D197-4A43-855F-197EE7CD974D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3282C339-6B1F-4864-9DC3-CC53909D11D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3282C339-6B1F-4864-9DC3-CC53909D11D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3282C339-6B1F-4864-9DC3-CC53909D11D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3282C339-6B1F-4864-9DC3-CC53909D11D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

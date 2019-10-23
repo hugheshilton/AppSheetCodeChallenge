@@ -5,38 +5,43 @@ namespace AppSheetChallenge.Library
 	/// <summary>
 	/// Represents a person.
 	/// </summary>
-	public class Person : IComparable<Person>
+	public class Person : IComparable<Person>, IHasException
 	{
 		#region Properties
 		/// <summary>
 		/// Gets or sets the person's ID.
 		/// </summary>
-		public int Id { get; set; }
+		public int id { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's name.
 		/// </summary>
-		public string Name { get; set; }
+		public string name { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's age.
 		/// </summary>
-		public int Age { get; set; }
+		public int age { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's phone number.
 		/// </summary>
-		public string Number { get; set; }
+		public string number { get; set; }
 
 		/// <summary>
 		/// Gets or sets a url to an image of the person.
 		/// </summary>
-		public string Photo { get; set; }
+		public string photo { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's biographical description.
 		/// </summary>
 		public string bio { get; set; }
+
+		/// <summary>
+		/// Gets or sets any exception that occurs retrieving the object from the web service.
+		/// </summary>
+		public Exception exception { get; set; }
 		#endregion
 
 		#region IComparable Members
@@ -48,7 +53,7 @@ namespace AppSheetChallenge.Library
 		/// if <paramref name="other"/> is younger than this person.</returns>
 		public int CompareTo(Person other)
 		{
-			return this.Age.CompareTo(other.Age);
+			return this.age.CompareTo(other.age);
 		}
 		#endregion
 	}
