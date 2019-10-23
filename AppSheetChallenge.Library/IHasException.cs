@@ -11,7 +11,7 @@ namespace AppSheetChallenge.Library
 		/// <summary>
 		/// Gets or sets an exception that occured.
 		/// </summary>
-		Exception exception { get; set; }
+		Exception Exception { get; set; }
 		#endregion
 	}
 }

@@ -21,17 +21,17 @@
 					<RowDefinition Height="Auto"/>
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
-				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Margin="3" Source="{Binding photo}" Width="200"/>
+				<Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Margin="3" Source="{Binding Photo}" Width="200"/>
 				<TextBlock Grid.Column="1" Grid.Row="0" Margin="3" Text="ID:"/>
-				<TextBlock Grid.Column="2" Grid.Row="0" Margin="3" Text="{Binding id}"/>
+				<TextBlock Grid.Column="2" Grid.Row="0" Margin="3" Text="{Binding Id}"/>
 				<TextBlock Grid.Column="1" Grid.Row="1" Margin="3" Text="Name:"/>
-				<TextBlock Grid.Column="2" Grid.Row="1" Margin="3" Text="{Binding name}"/>
+				<TextBlock Grid.Column="2" Grid.Row="1" Margin="3" Text="{Binding Name}"/>
 				<TextBlock Grid.Column="1" Grid.Row="2" Margin="3" Text="Age:"/>
-				<TextBlock Grid.Column="2" Grid.Row="2" Margin="3" Text="{Binding age}"/>
+				<TextBlock Grid.Column="2" Grid.Row="2" Margin="3" Text="{Binding Age}"/>
 				<TextBlock Grid.Column="1" Grid.Row="3" Margin="3" Text="Phone Number:"/>
-				<TextBlock Grid.Column="4" Grid.Row="3" Margin="3" Text="{Binding number}"/>
+				<TextBlock Grid.Column="4" Grid.Row="3" Margin="3" Text="{Binding Number}"/>
 				<TextBlock Grid.Column="1" Grid.Row="4" Margin="3" Text="Bio:"/>
-				<TextBlock Grid.Column="5" Grid.Row="4" Margin="3" Text="{Binding bio}" TextWrapping="Wrap"/>
+				<TextBlock Grid.Column="5" Grid.Row="4" Margin="3" Text="{Binding Biography}" TextWrapping="Wrap"/>
 			</Grid>
 		</DataTemplate>
 	</Window.Resources>

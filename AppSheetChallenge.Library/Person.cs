@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 
 namespace AppSheetChallenge.Library
@@ -12,37 +13,43 @@ namespace AppSheetChallenge.Library
 		/// <summary>
 		/// Gets or sets the person's ID.
 		/// </summary>
-		public int id { get; set; }
+		[DataMember(Name = "id")]
+		public int Id { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's name.
 		/// </summary>
-		public string name { get; set; }
+		[DataMember(Name = "name")]
+		public string Name { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's age.
 		/// </summary>
-		public int age { get; set; }
+		[DataMember(Name = "age")]
+		public int Age { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's phone number.
 		/// </summary>
-		public string number { get; set; }
+		[DataMember(Name = "number")]
+		public string Number { get; set; }
 
 		/// <summary>
 		/// Gets or sets a url to an image of the person.
 		/// </summary>
-		public string photo { get; set; }
+		[DataMember(Name = "photo")]
+		public string Photo { get; set; }
 
 		/// <summary>
 		/// Gets or sets the person's biographical description.
 		/// </summary>
-		public string bio { get; set; }
+		[DataMember(Name = "bio")]
+		public string Biography { get; set; }
 
 		/// <summary>
 		/// Gets or sets any exception that occurs retrieving the object from the web service.
 		/// </summary>
-		public Exception exception { get; set; }
+		public Exception Exception { get; set; }
 		#endregion
 
 		#region Public Methods
@@ -57,7 +64,7 @@ namespace AppSheetChallenge.Library
 		public bool HasUnitedStatesNumber()
 		{
 			const string regexPattern = @"^\s*\(?\s*([0-9]{3})\s*\)?\s*[-.]?\s*([0-9]{3})\s*[-.]?\s*([0-9]{4})\s*$";
-			return string.IsNullOrEmpty(this.number) ? false : Regex.IsMatch(this.number, regexPattern);
+			return string.IsNullOrEmpty(this.Number) ? false : Regex.IsMatch(this.Number, regexPattern);
 		}
 		#endregion
 
@@ -70,7 +77,7 @@ namespace AppSheetChallenge.Library
 		/// if <paramref name="other"/> is younger than this person.</returns>
 		public int CompareTo(Person other)
 		{
-			return this.age.CompareTo(other.age);
+			return this.Age.CompareTo(other.Age);
 		}
 		#endregion
 	}

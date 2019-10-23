@@ -19,8 +19,8 @@ namespace AppSheetChallenge.Test
 			var previousAge = -1;
 			foreach (var person in actual)
 			{
-				Assert.IsTrue(person.age > previousAge);
-				previousAge = person.age;
+				Assert.IsTrue(person.Age > previousAge);
+				previousAge = person.Age;
 			}
 		}
 
@@ -36,8 +36,8 @@ namespace AppSheetChallenge.Test
 			foreach (var person in actual)
 			{
 				Assert.IsTrue(person.HasUnitedStatesNumber());
-				Assert.IsTrue(person.age > previousAge);
-				previousAge = person.age;
+				Assert.IsTrue(person.Age > previousAge);
+				previousAge = person.Age;
 			}
 		}
 
@@ -49,7 +49,7 @@ namespace AppSheetChallenge.Test
 			task.Wait();
 			var actual = task.Result;
 			var expectedIds = new[] { 19, 18, 15, 14, 12, 10, 9 };
-			var actualIds = actual.Select(p => p.id).ToArray();
+			var actualIds = actual.Select(p => p.Id).ToArray();
 			CollectionAssert.AreEqual(expectedIds, actualIds);
 		}
 
@@ -61,7 +61,7 @@ namespace AppSheetChallenge.Test
 			task.Wait();
 			var actual = task.Result;
 			var expectedIds = new[] { 19, 18, 26, 16, 15, 14, 13 };
-			var actualIds = actual.Select(p => p.id).ToArray();
+			var actualIds = actual.Select(p => p.Id).ToArray();
 			CollectionAssert.AreEqual(expectedIds, actualIds);
 		}
 		#endregion

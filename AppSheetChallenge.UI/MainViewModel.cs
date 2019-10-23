@@ -44,7 +44,7 @@ namespace AppSheetChallenge.UI
 			var top = type == RetrievalType.Top5USOnly ? 5 : 0;
 			var people = await finder.FindPeopleSortedByAge(usOnly, top);
 			if (type == RetrievalType.Top5USOnly)
-				people = people.OrderBy(p => p.name).ToArray();
+				people = people.OrderBy(p => p.Name).ToArray();
 			foreach (var person in people)
 			{
 				this.People.Add(person);

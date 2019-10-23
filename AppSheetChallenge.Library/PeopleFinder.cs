@@ -42,14 +42,14 @@ namespace AppSheetChallenge.Library
 			PersonIdList result = null;
 			do
 			{
-				var query = result != null ? $"token={result.token}" : string.Empty;
+				var query = result != null ? $"token={result.Token}" : string.Empty;
 				result = await this.QueryService<PersonIdList>(listPath, query);
-				foreach (var person in await Task.WhenAll(result.result.Select(i => this.QueryService<Person>($"{detailPath}/{i}"))))
+				foreach (var person in await Task.WhenAll(result.Result.Select(i => this.QueryService<Person>($"{detailPath}/{i}"))))
 				{
-					if (person.exception == null && (!unitedStatesNumbersOnly || person.HasUnitedStatesNumber()))
+					if (person.Exception == null && (!unitedStatesNumbersOnly || person.HasUnitedStatesNumber()))
 						people.Add(person);
 				}
-			} while (!string.IsNullOrEmpty(result.token));
+			} while (!string.IsNullOrEmpty(result.Token));
 			if (top > 0)
 				return people.Take(top).ToArray();
 			return people.ToArray();
@@ -80,7 +80,7 @@ namespace AppSheetChallenge.Library
 			catch (Exception ex)
 			{
 				var result = new T();
-				((IHasException)result).exception = ex;
+				((IHasException)result).Exception = ex;
 				return result;
 			}
 		}

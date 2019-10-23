@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace AppSheetChallenge.Library
 {
@@ -11,17 +12,19 @@ namespace AppSheetChallenge.Library
 		/// <summary>
 		/// Gets or sets the list of person ID's.
 		/// </summary>
-		public int[] result { get; set; }
+		[DataMember(Name = "result")]
+		public int[] Result { get; set; }
 
 		/// <summary>
 		/// Gets or sets the token to get the next ID's.
 		/// </summary>
-		public string token { get; set; }
+		[DataMember(Name = "token")]
+		public string Token { get; set; }
 
 		/// <summary>
 		/// Gets or sets any exception that occurs retrieving the object from the web service.
 		/// </summary>
-		public Exception exception { get; set; }
+		public Exception Exception { get; set; }
 		#endregion
 	}
 }
