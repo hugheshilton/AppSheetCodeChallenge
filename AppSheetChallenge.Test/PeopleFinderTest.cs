@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using AppSheetChallenge.Library;
 
@@ -39,6 +39,30 @@ namespace AppSheetChallenge.Test
 				Assert.IsTrue(person.age > previousAge);
 				previousAge = person.age;
 			}
+		}
+
+		[TestMethod]
+		public void FindTopUnitedStatesPeopleSortedByAge()
+		{
+			var finder = new PeopleFinder("https://appsheettest1.azurewebsites.net/sample");
+			var task = finder.FindPeopleSortedByAge(true, 7);
+			task.Wait();
+			var actual = task.Result;
+			var expectedIds = new[] { 19, 18, 15, 14, 12, 10, 9 };
+			var actualIds = actual.Select(p => p.id).ToArray();
+			CollectionAssert.AreEqual(expectedIds, actualIds);
+		}
+
+		[TestMethod]
+		public void FindTopPeopleSortedByAge()
+		{
+			var finder = new PeopleFinder("https://appsheettest1.azurewebsites.net/sample");
+			var task = finder.FindPeopleSortedByAge(false, 7);
+			task.Wait();
+			var actual = task.Result;
+			var expectedIds = new[] { 19, 18, 26, 16, 15, 14, 13 };
+			var actualIds = actual.Select(p => p.id).ToArray();
+			CollectionAssert.AreEqual(expectedIds, actualIds);
 		}
 		#endregion
 	}

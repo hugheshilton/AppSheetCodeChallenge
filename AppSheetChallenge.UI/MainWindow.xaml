@@ -43,8 +43,9 @@
 		<ListBox Grid.Row="0" Margin="3" ItemsSource="{Binding People}" ItemTemplate="{StaticResource PersonTemplate}"
 						 ScrollViewer.HorizontalScrollBarVisibility="Hidden"/>
 		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-			<Button Margin="3" Padding="3" Command="{Binding RetrieveAllCommand}" CommandParameter="{x:Static local:RetrievalType.All}">Retrieve all people.</Button>
-			<Button Margin="3" Padding="3" Command="{Binding RetrieveAllCommand}" CommandParameter="{x:Static local:RetrievalType.USOnly}">Retrieve US people.</Button>
+			<Button Margin="3" Padding="3" Command="{Binding RetrieveCommand}" CommandParameter="{x:Static local:RetrievalType.All}">Retrieve all people.</Button>
+			<Button Margin="3" Padding="3" Command="{Binding RetrieveCommand}" CommandParameter="{x:Static local:RetrievalType.USOnly}">Retrieve US people.</Button>
+			<Button Margin="3" Padding="3" Command="{Binding RetrieveCommand}" CommandParameter="{x:Static local:RetrievalType.Top5USOnly}">Retrieve Top 5 US people.</Button>
 		</StackPanel>
 	</Grid>
 </Window>

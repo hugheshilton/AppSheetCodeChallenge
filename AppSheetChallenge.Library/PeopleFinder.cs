@@ -29,11 +29,12 @@ namespace AppSheetChallenge.Library
 
 		#region Public Methods
 		/// <summary>
-		/// Returns all <see cref="Person"/> objects from the web service sorted youngest to oldest by age.
+		/// Returns all <see cref="Person"/> objects from the web service sorted youngest to oldest.
 		/// If an exception occurs while retrieving a person, that person is excluded from the results.
 		/// </summary>
 		/// <param name="unitedStatesNumbersOnly">True to return only people with phone numbers in the United States.</param>
-		public async Task<Person[]> FindPeopleSortedByAge(bool unitedStatesNumbersOnly = false)
+		/// <param name="top">If set to a positive integer, only that many people (or less) are returned.</param>
+		public async Task<Person[]> FindPeopleSortedByAge(bool unitedStatesNumbersOnly = false, int top = 0)
 		{
 			const string listPath = "list";
 			const string detailPath = "detail";
@@ -49,6 +50,8 @@ namespace AppSheetChallenge.Library
 						people.Add(person);
 				}
 			} while (!string.IsNullOrEmpty(result.token));
+			if (top > 0)
+				return people.Take(top).ToArray();
 			return people.ToArray();
 		}
 		#endregion
